@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "cloudrun"
-    ]
+    ],
+    "dart.sdkPath": "/usr/lib/dart"
 }

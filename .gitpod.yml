@@ -9,4 +9,4 @@ vscode:
 
 tasks:
   - name: start
-    command: dart run ./main.dart
+    command: dart run ./bin/dart_cloudrun.dart
