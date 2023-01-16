@@ -5,12 +5,12 @@ Future<void> main() async {
   // https://cloud.google.com/run/docs/reference/container-contract#port
   final port = int.parse(Platform.environment['PORT'] ?? '8080');
 
-  final server = await HttpServer.bind(InternetAddress.loopbackIPv4, port);
+  final server = await HttpServer.bind(InternetAddress.anyIPv4, port);
 
   print('Serving at http://${server.address.host}:${server.port}');
 
   server.listen((request) {
-    request.response.headers.contentType =  ContentType.html;
+    request.response.headers.contentType = ContentType.html;
     request.response.write('''<!doctype html>
 <html lang="ja">
 

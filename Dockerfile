@@ -1,5 +1,16 @@
 FROM dart:stable
 
-COPY [".", "."]
+FROM dart:stable AS build
 
-CMD [ "dart", "run", "./bin/dart_cloudrun.dart" ]
+WORKDIR /app
+COPY pubspec.* ./
+RUN dart pub get
+
+COPY . .
+RUN dart pub get --offline
+RUN dart compile exe bin/dart_cloudrun.dart -o bin/start
+
+FROM scratch
+COPY --from=build /app/bin/start /app/bin/
+
+CMD ["/app/bin/start"]

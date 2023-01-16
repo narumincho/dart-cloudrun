@@ -2,5 +2,7 @@
     "cSpell.words": [
         "cloudrun"
     ],
-    "dart.sdkPath": "/usr/lib/dart"
+    "dart.sdkPath": "/usr/lib/dart",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
 }
