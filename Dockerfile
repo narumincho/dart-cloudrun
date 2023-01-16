@@ -1,5 +1,3 @@
-FROM dart:stable
-
 FROM dart:stable AS build
 
 WORKDIR /app
@@ -8,9 +6,10 @@ RUN dart pub get
 
 COPY . .
 RUN dart pub get --offline
-RUN dart compile exe bin/dart_cloudrun.dart -o bin/start
+RUN dart compile exe bin/dart_cloudrun.dart -o ./bin/start
 
 FROM scratch
-COPY --from=build /app/bin/start /app/bin/
 
-CMD ["/app/bin/start"]
+COPY --from=build ./bin/start .
+
+CMD ["/app/start"]
