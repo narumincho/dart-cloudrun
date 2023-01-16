@@ -8,5 +8,6 @@ vscode:
     - Dart-Code.dart-code
 
 tasks:
+  - init: dart pub get
   - name: start
     command: dart run ./bin/dart_cloudrun.dart
